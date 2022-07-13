@@ -1,7 +1,12 @@
-import Home from './pages/home/Home';
+import ProductList from './pages/product-list/ProductList';
 
 function App() {
-  return <Home />;
+  return (
+    <>
+      {/* <Home /> */}
+      <ProductList />
+    </>
+  );
 }
 
 export default App;
