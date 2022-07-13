@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 60px;
+  height: 90px;
 `;
 
 export const Wrapper = styled.div`
@@ -53,7 +53,7 @@ export const Navigation = styled.nav`
 `;
 
 export const MenuItem = styled.div`
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   margin-left: 25px;
 `;

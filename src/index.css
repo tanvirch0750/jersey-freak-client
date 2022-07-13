@@ -4,3 +4,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.MuiBadge-colorPrimary {
+  background-color: #078080 !important;
+}
