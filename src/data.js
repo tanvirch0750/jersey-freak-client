@@ -21,3 +21,21 @@ export const sliderItems = [
     bg: 'FAFAFA',
   },
 ];
+
+export const categories = [
+  {
+    id: 1,
+    img: 'https://i.ibb.co/KKrGVkL/01g363yr0cgkvy54nhxa.jpg',
+    title: 'Laliga Jersey',
+  },
+  {
+    id: 2,
+    img: 'https://i.ibb.co/KKrGVkL/01g363yr0cgkvy54nhxa.jpg',
+    title: 'Premier League Jersey',
+  },
+  {
+    id: 2,
+    img: 'https://i.ibb.co/KKrGVkL/01g363yr0cgkvy54nhxa.jpg',
+    title: 'SeriaA jersey',
+  },
+];
