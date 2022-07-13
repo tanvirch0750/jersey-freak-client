@@ -1,9 +1,7 @@
+import Home from './pages/home/Home';
+
 function App() {
-  return (
-    <div className="App">
-      <h1>Hello Jersey Freak</h1>
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
