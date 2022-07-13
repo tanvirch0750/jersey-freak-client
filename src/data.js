@@ -34,8 +34,43 @@ export const categories = [
     title: 'Premier League Jersey',
   },
   {
-    id: 2,
+    id: 3,
     img: 'https://i.ibb.co/KKrGVkL/01g363yr0cgkvy54nhxa.jpg',
     title: 'SeriaA jersey',
+  },
+];
+
+export const popularProducts = [
+  {
+    id: 1,
+    img: 'https://i.ibb.co/jhv04jx/H23544-MUFC-FW22-HOME-KIT-ALEX-TELLES-093-s-RGB1657202650557-medium.jpg',
+  },
+  {
+    id: 2,
+    img: 'https://i.ibb.co/jhv04jx/H23544-MUFC-FW22-HOME-KIT-ALEX-TELLES-093-s-RGB1657202650557-medium.jpg',
+  },
+  {
+    id: 3,
+    img: 'https://i.ibb.co/jhv04jx/H23544-MUFC-FW22-HOME-KIT-ALEX-TELLES-093-s-RGB1657202650557-medium.jpg',
+  },
+  {
+    id: 4,
+    img: 'https://i.ibb.co/jhv04jx/H23544-MUFC-FW22-HOME-KIT-ALEX-TELLES-093-s-RGB1657202650557-medium.jpg',
+  },
+  {
+    id: 5,
+    img: 'https://i.ibb.co/jhv04jx/H23544-MUFC-FW22-HOME-KIT-ALEX-TELLES-093-s-RGB1657202650557-medium.jpg',
+  },
+  {
+    id: 6,
+    img: 'https://i.ibb.co/jhv04jx/H23544-MUFC-FW22-HOME-KIT-ALEX-TELLES-093-s-RGB1657202650557-medium.jpg',
+  },
+  {
+    id: 7,
+    img: 'https://i.ibb.co/jhv04jx/H23544-MUFC-FW22-HOME-KIT-ALEX-TELLES-093-s-RGB1657202650557-medium.jpg',
+  },
+  {
+    id: 8,
+    img: 'https://i.ibb.co/jhv04jx/H23544-MUFC-FW22-HOME-KIT-ALEX-TELLES-093-s-RGB1657202650557-medium.jpg',
   },
 ];
