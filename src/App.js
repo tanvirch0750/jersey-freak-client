@@ -1,10 +1,10 @@
-import ProductList from './pages/product-list/ProductList';
+import Product from './pages/product/Product';
 
 function App() {
   return (
     <>
       {/* <Home /> */}
-      <ProductList />
+      <Product />
     </>
   );
 }

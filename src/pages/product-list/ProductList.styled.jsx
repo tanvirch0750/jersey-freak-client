@@ -8,6 +8,7 @@ export const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
 export const Filter = styled.div`
   margin: 20px;
 `;
