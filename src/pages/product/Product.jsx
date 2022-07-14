@@ -45,7 +45,7 @@ const Product = () => {
             <Price>$ 100</Price>
             <FilterContainer>
               <Filter>
-                <FilterTitle>Jersey Options</FilterTitle>
+                <FilterTitle>Options</FilterTitle>
                 <FilterJersey jersey="home">Home</FilterJersey>
                 <FilterJersey jersey="away">Away</FilterJersey>
                 <FilterJersey jersey="third">Third</FilterJersey>

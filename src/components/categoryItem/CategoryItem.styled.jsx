@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { mobile } from '../../responsive';
 
 export const Container = styled.div`
   margin: 3px;
@@ -26,6 +27,10 @@ export const Title = styled.h2`
   // color: #fff;
   font-size: 32px;
   margin-bottom: 20px;
+
+  ${mobile({
+    fontSize: '20px',
+  })}
 `;
 export const Button = styled.button`
   font-size: 16px;
@@ -58,6 +63,11 @@ export const Button = styled.button`
     top: 0px;
     left: 0px;
   }
+
+  ${mobile({
+    fontSize: '14px',
+    padding: '8px 10px',
+  })}
 
   @media (min-width: 768px) {
     padding: 13px 50px 13px;

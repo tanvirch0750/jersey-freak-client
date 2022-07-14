@@ -1,8 +1,14 @@
 import styled from 'styled-components';
+import { mobile } from '../../responsive';
 
 export const Container = styled.footer`
   padding: 80px 0;
   display: flex;
+
+  ${mobile({
+    padding: '0',
+    flexDirection: 'column',
+  })}
 `;
 export const FooterLeft = styled.div`
   flex: 1;
@@ -36,6 +42,10 @@ export const SocialIcon = styled.div`
 export const FooterCenter = styled.div`
   flex: 1;
   padding: 20px;
+
+  ${mobile({
+    display: 'none',
+  })}
 `;
 
 export const Title = styled.h3`

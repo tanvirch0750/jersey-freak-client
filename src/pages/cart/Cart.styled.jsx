@@ -1,9 +1,14 @@
 import styled from 'styled-components';
+import { mobile } from '../../responsive';
 
 export const Container = styled.div``;
 
 export const Wrapper = styled.div`
   padding: 20px;
+
+  ${mobile({
+    padding: '10px',
+  })}
 `;
 
 export const Title = styled.h1`
@@ -25,6 +30,10 @@ export const CartTop = styled.div`
 export const TopTexts = styled.div`
   display: flex;
   gap: 10px;
+
+  ${mobile({
+    display: 'none',
+  })}
 `;
 export const TopText = styled.span`
   margin: 0;
@@ -37,7 +46,6 @@ export const TopButton = styled.button`
   color: #fffffe;
   text-transform: uppercase;
   font-weight: 200;
-  letter-spacing: 1px;
   padding: 13px 20px 13px;
   outline: 0;
   border: 1px solid transparent;
@@ -48,6 +56,12 @@ export const TopButton = styled.button`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+
+  ${mobile({
+    fontSize: '14px',
+    padding: '8px 10px 8px',
+    textTransform: 'capitalize',
+  })}
 
   @media (min-width: 768px) {
     padding: 13px 30px 13px;
@@ -60,14 +74,26 @@ export const CartBottom = styled.div`
   align-items: start;
   gap: 30px;
   margin-top: 50px;
+
+  ${mobile({
+    flexDirection: 'column',
+  })}
 `;
 export const Info = styled.div`
   flex: 3;
+
+  ${mobile({
+    flex: '1',
+  })}
 `;
 
 export const Product = styled.div`
   display: flex;
   justify-content: space-between;
+
+  ${mobile({
+    flexDirection: 'column',
+  })}
 `;
 
 export const ProductDetail = styled.div`
@@ -78,6 +104,10 @@ export const ProductDetail = styled.div`
 
 export const Image = styled.img`
   width: 200px;
+
+  ${mobile({
+    width: '150px',
+  })}
 `;
 
 export const Details = styled.div`
@@ -85,6 +115,10 @@ export const Details = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
+  ${mobile({
+    gap: '10px',
+  })}
 `;
 
 export const ProductName = styled.span``;
@@ -119,17 +153,29 @@ export const ProductAmountContainer = styled.div`
 export const ProductAmount = styled.div`
   font-size: 24px;
   margin: 5px;
+
+  ${mobile({
+    margin: '5px 15px',
+  })}
 `;
 
 export const ProductPrice = styled.div`
   font-size: 30px;
   font-weight: 200;
+
+  ${mobile({
+    marginBottom: '20px',
+  })}
 `;
 
 export const Hr = styled.hr`
   background-color: #eee;
   border: none;
   height: 1px;
+
+  ${mobile({
+    marginBottom: '40px',
+  })}
 `;
 
 export const Summary = styled.div`
@@ -137,6 +183,7 @@ export const Summary = styled.div`
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 20px;
+  width: 100%;
 `;
 
 export const SummaryTitle = styled.h1`
