@@ -1,10 +1,9 @@
-import Product from './pages/product/Product';
+import Cart from './pages/cart/Cart';
 
 function App() {
   return (
     <>
-      {/* <Home /> */}
-      <Product />
+      <Cart />
     </>
   );
 }

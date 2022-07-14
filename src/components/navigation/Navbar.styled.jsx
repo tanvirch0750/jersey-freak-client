@@ -5,7 +5,8 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  padding: 10px 20px;
+  height: 100%;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
