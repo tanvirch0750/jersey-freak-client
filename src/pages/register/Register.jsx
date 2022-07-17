@@ -1,3 +1,4 @@
+import { Navigate } from 'react-router-dom';
 import Navbar from '../../components/navigation/Navbar';
 import {
   Agreement,
@@ -9,9 +10,12 @@ import {
   Wrapper,
 } from './Register.styled';
 
+const user = true;
+
 const Register = () => {
   return (
     <>
+      {user && <Navigate to="/" replace={true} />}
       <Navbar />
       <Container>
         <Wrapper>

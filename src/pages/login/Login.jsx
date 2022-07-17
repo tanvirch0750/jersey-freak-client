@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import Navbar from '../../components/navigation/Navbar';
 import {
   Button,
@@ -10,9 +11,12 @@ import {
   Wrapper,
 } from './Login.styled';
 
+const user = true;
+
 const Login = () => {
   return (
     <>
+      {user && <Navigate to="/" replace={true} />}
       <Navbar />
       <Container>
         <Wrapper>
