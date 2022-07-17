@@ -8,7 +8,7 @@ import { Container, Icon, Image, Info } from './Product.styled';
 const Product = ({ product }) => {
   return (
     <Container>
-      <Image src={product.img} />
+      <Image src={product?.img} />
       <Info>
         <Icon>
           <ShoppingCartOutlined />
