@@ -1,5 +1,6 @@
 import { Add, Remove } from '@material-ui/icons';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Announcement from '../../components/announcement/Announcement';
 import Footer from '../../components/footer/Footer';
 import Navbar from '../../components/navigation/Navbar';
@@ -35,6 +36,8 @@ import {
 } from './Cart.styled';
 
 const Cart = () => {
+  const cart = useSelector((state) => state.cart);
+  console.log(cart);
   return (
     <>
       <Navbar />
@@ -45,74 +48,51 @@ const Cart = () => {
           <CartTop>
             <TopButton>Continue Shopping</TopButton>
             <TopTexts>
-              <TopText>Shopping Bag (2)</TopText>
+              <TopText>Shopping Bag ({cart.quantity})</TopText>
               <TopText>Your Favourite (0)</TopText>
             </TopTexts>
             <TopButton type="checkout">Checkout Now</TopButton>
           </CartTop>
           <CartBottom>
             <Info>
-              <Product>
-                <ProductDetail>
-                  <Image src="https://i.ibb.co/F6SFswR/jersey.jpg" />
-                  <Details>
-                    <ProductName>
-                      <b>Product:</b> Real Madrid
-                    </ProductName>
-                    <ProductId>
-                      <b>ID:</b> 3245678
-                    </ProductId>
-                    <ProductType>
-                      <b>Type:</b> <span>Away</span>
-                    </ProductType>
-                    <ProductSize>
-                      <b>Size:</b> XL
-                    </ProductSize>
-                  </Details>
-                </ProductDetail>
-                <PriceDetail>
-                  <ProductAmountContainer>
-                    <Add />
-                    <ProductAmount>2</ProductAmount>
-                    <Remove />
-                  </ProductAmountContainer>
-                  <ProductPrice>$ 100</ProductPrice>
-                </PriceDetail>
-              </Product>
-              <Hr />
-              <Product>
-                <ProductDetail>
-                  <Image src="https://i.ibb.co/F6SFswR/jersey.jpg" />
-                  <Details>
-                    <ProductName>
-                      <b>Product:</b> Real Madrid
-                    </ProductName>
-                    <ProductId>
-                      <b>ID:</b> 3245678
-                    </ProductId>
-                    <ProductType>
-                      <b>Type:</b> <span>Away</span>
-                    </ProductType>
-                    <ProductSize>
-                      <b>Size:</b> XL
-                    </ProductSize>
-                  </Details>
-                </ProductDetail>
-                <PriceDetail>
-                  <ProductAmountContainer>
-                    <Add />
-                    <ProductAmount>2</ProductAmount>
-                    <Remove />
-                  </ProductAmountContainer>
-                  <ProductPrice>$ 100</ProductPrice>
-                </PriceDetail>
-              </Product>
+              {cart.products?.map((product) => (
+                <>
+                  <Product>
+                    <ProductDetail>
+                      <Image src={product?.img} />
+                      <Details>
+                        <ProductName>
+                          <b>Product Name:</b> {product?.title}
+                        </ProductName>
+                        <ProductId>
+                          <b>ID:</b> {product?._id}
+                        </ProductId>
+                        <ProductType>
+                          <b>Type:</b> <span>{product?.jerseType}</span>
+                        </ProductType>
+                        <ProductSize>
+                          <b>Size:</b> {product?.jerseySize}
+                        </ProductSize>
+                      </Details>
+                    </ProductDetail>
+                    <PriceDetail>
+                      <ProductAmountContainer>
+                        <Add />
+                        <ProductAmount>{product?.quantity}</ProductAmount>
+                        <Remove />
+                      </ProductAmountContainer>
+                      <ProductPrice>$ {product?.price}</ProductPrice>
+                    </PriceDetail>
+                  </Product>
+                  <Hr />
+                </>
+              ))}
             </Info>
             <Summary>
               <SummaryTitle>ORDER SUMMARY</SummaryTitle>
               <SummaryItem>
                 <SummaryItemText>Subtotal</SummaryItemText>
-                <SummaryItemPrice>$ 200</SummaryItemPrice>
+                <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
               </SummaryItem>
               <SummaryItem>
                 <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -124,7 +104,7 @@ const Cart = () => {
               </SummaryItem>
               <SummaryItem type="total">
                 <SummaryItemText>Total</SummaryItemText>
-                <SummaryItemPrice>$ 200</SummaryItemPrice>
+                <SummaryItemPrice>$ {cart.total + 10 - 5.9}</SummaryItemPrice>
               </SummaryItem>
               <Button>Checkout Now</Button>
             </Summary>

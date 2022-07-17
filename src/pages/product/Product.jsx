@@ -1,9 +1,11 @@
 import { Add, Remove } from '@material-ui/icons';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import Announcement from '../../components/announcement/Announcement';
 import Footer from '../../components/footer/Footer';
 import Navbar from '../../components/navigation/Navbar';
+import { addProduct } from '../../redux/cartRedux';
 import { publicRequest } from '../../requestMethods';
 import {
   AddContainer,
@@ -35,6 +37,8 @@ const Product = () => {
   const [jerseType, setJerseType] = useState('');
   const [jerseySize, setJerseySize] = useState('');
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -56,7 +60,7 @@ const Product = () => {
   };
 
   const handleClick = () => {
-    // add to cart
+    dispatch(addProduct({ ...product, quantity, jerseType, jerseySize }));
   };
 
   const { title, desc, img, price, jerseyType, size } = product;
