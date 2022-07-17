@@ -1,7 +1,10 @@
 import { Add, Remove } from '@material-ui/icons';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Announcement from '../../components/announcement/Announcement';
 import Footer from '../../components/footer/Footer';
 import Navbar from '../../components/navigation/Navbar';
+import { publicRequest } from '../../requestMethods';
 import {
   AddContainer,
   Amount,
@@ -24,6 +27,39 @@ import {
 } from './Product.styled';
 
 const Product = () => {
+  const location = useLocation();
+  const id = location.pathname.split('/')[2];
+
+  const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const [jerseType, setJerseType] = useState('');
+  const [jerseySize, setJerseySize] = useState('');
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get(`/products/find/${id}`);
+        setProduct(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProduct();
+  }, [id]);
+
+  const handleQuantity = (type) => {
+    if (type === 'dec') {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  };
+
+  const handleClick = () => {
+    // add to cart
+  };
+
+  const { title, desc, img, price, jerseyType, size } = product;
   return (
     <>
       <Navbar />
@@ -31,44 +67,47 @@ const Product = () => {
       <Container>
         <Wrapper>
           <ImgContainer>
-            <Image src="https://i.ibb.co/jhv04jx/H23544-MUFC-FW22-HOME-KIT-ALEX-TELLES-093-s-RGB1657202650557-medium.jpg" />
+            <Image src={img} />
           </ImgContainer>
           <InfoContainer>
-            <Title>Manchester United Home</Title>
-            <Description>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet
-              aperiam architecto ipsum maiores assumenda sapiente enim illum
-              mollitia facilis expedita. Lorem ipsum dolor sit amet consectetur,
-              adipisicing elit. Possimus sequi mollitia exercitationem deserunt
-              assumenda voluptatem.
-            </Description>
-            <Price>$ 100</Price>
+            <Title>{title}</Title>
+            <Description>{desc}</Description>
+            <Price>$ {price}</Price>
             <FilterContainer>
               <Filter>
-                <FilterTitle>Options</FilterTitle>
-                <FilterJersey jersey="home">Home</FilterJersey>
-                <FilterJersey jersey="away">Away</FilterJersey>
-                <FilterJersey jersey="third">Third</FilterJersey>
+                <FilterTitle>Jersey Type</FilterTitle>
+                {jerseyType?.map((type) => (
+                  <FilterJersey
+                    key={type}
+                    jersey={type}
+                    onClick={() => setJerseType(type)}
+                  >
+                    {type}
+                  </FilterJersey>
+                ))}
               </Filter>
               <Filter>
                 <FilterTitle>Size</FilterTitle>
-                <FilterSize>
-                  <FilterSizeOption>XS</FilterSizeOption>
-                  <FilterSizeOption>S</FilterSizeOption>
-                  <FilterSizeOption>M</FilterSizeOption>
-                  <FilterSizeOption>L</FilterSizeOption>
-                  <FilterSizeOption>XL</FilterSizeOption>
-                  <FilterSizeOption>XXL</FilterSizeOption>
+                <FilterSize onChange={(e) => setJerseySize(e.target.value)}>
+                  {size?.map((s) => (
+                    <FilterSizeOption key={s}>{s}</FilterSizeOption>
+                  ))}
                 </FilterSize>
               </Filter>
             </FilterContainer>
             <AddContainer>
               <AmountContainer>
-                <Remove />
-                <Amount>1</Amount>
-                <Add />
+                <Remove
+                  onClick={() => handleQuantity('dec')}
+                  style={{ cursor: 'pointer' }}
+                />
+                <Amount>{quantity}</Amount>
+                <Add
+                  onClick={() => handleQuantity('inc')}
+                  style={{ cursor: 'pointer' }}
+                />
               </AmountContainer>
-              <Button>Add To Cart</Button>
+              <Button onClick={handleClick}>Add To Cart</Button>
             </AddContainer>
           </InfoContainer>
         </Wrapper>

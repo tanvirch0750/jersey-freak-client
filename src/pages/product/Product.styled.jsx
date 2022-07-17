@@ -6,7 +6,7 @@ export const Container = styled.div``;
 export const Wrapper = styled.div`
   padding: 50px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 
   ${mobile({
     padding: '30px 10px',
