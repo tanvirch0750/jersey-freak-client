@@ -5,6 +5,7 @@ import Login from './pages/login/Login.jsx';
 import ProductList from './pages/product-list/ProductList';
 import Product from './pages/product/Product';
 import Register from './pages/register/Register';
+import Success from './pages/success/Success.jsx';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/products/:caategory" element={<ProductList />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/success" element={<Success />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
