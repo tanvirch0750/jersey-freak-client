@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import Navbar from '../../components/navigation/Navbar';
 import {
@@ -14,6 +14,8 @@ import {
 const user = true;
 
 const Login = () => {
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <>
       {user && <Navigate to="/" replace={true} />}
@@ -22,7 +24,11 @@ const Login = () => {
         <Wrapper>
           <Title>Login</Title>
           <Form>
-            <Input type="text" placeholder="Username" />
+            <Input
+              type="text"
+              placeholder="Username"
+              onChange={(e) => setUserName(e.target.value)}
+            />
             <Input type="password" placeholder="Password" />
             <Button>Login</Button>
             <Link>Forgot Password?</Link>
