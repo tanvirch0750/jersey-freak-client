@@ -18,7 +18,6 @@ import {
 
 const Navbar = () => {
   const { quantity } = useSelector((state) => state.cart);
-  console.log(quantity);
 
   return (
     <Container>

@@ -39,8 +39,6 @@ import {
 } from './Cart.styled';
 const KEY = process.env.REACT_APP_STRIPE;
 
-console.log(KEY);
-
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
 

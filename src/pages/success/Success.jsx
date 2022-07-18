@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { userRequest } from '../requestMethods';
+import { userRequest } from '../../requestMethods';
 
 const Success = () => {
   const location = useLocation();

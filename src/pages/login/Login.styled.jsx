@@ -51,6 +51,10 @@ export const Input = styled.input`
   padding: 10px;
 `;
 
+export const Error = styled.span`
+  color: red;
+`;
+
 export const Button = styled.button`
   margin-top: 20px;
   margin-bottom: 20px;
@@ -69,6 +73,11 @@ export const Button = styled.button`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+
+  &::disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 
   @media (min-width: 768px) {
     padding: 13px 50px 13px;
